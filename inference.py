@@ -1,12 +1,18 @@
 # inference.py
 
-def run_inference(prompt: str):
-    return f"Processed: {prompt}"
+def reset():
+    return {"status": "ok", "message": "reset successful"}
 
+def step(action):
+    return {
+        "observation": {"text": "hello"},
+        "reward": 1.0,
+        "done": True,
+        "info": {}
+    }
 
 def main():
-    print("OpenEnv inference module active")
-
+    print("Inference loaded")
 
 if __name__ == "__main__":
     main()
