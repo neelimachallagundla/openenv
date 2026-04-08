@@ -1,18 +1,31 @@
 # inference.py
 
 def reset():
-    return {"status": "ok", "message": "reset successful"}
-
-def step(action):
+    """
+    Must always return simple JSON-safe dict
+    """
     return {
-        "observation": {"text": "hello"},
-        "reward": 1.0,
-        "done": True,
-        "info": {}
+        "observation": "reset state",
+        "info": {},
+        "done": False
     }
 
+
+def step(action):
+    """
+    OpenEnv-compatible step function
+    """
+    return (
+        {"observation": f"received: {action}"},
+        1.0,
+        True,
+        {}
+    )
+
+
 def main():
-    print("Inference loaded")
+    print("Inference module loaded successfully")
+
 
 if __name__ == "__main__":
     main()
